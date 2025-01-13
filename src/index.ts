@@ -1,4 +1,4 @@
-class PublicKey {
+class VerifyingKey {
   bytes: Uint8Array;
   rawBytes: Uint8Array;
 
@@ -34,15 +34,15 @@ class Signature {
   toString = this.hexString;
 }
 
-class SigningKey {
+export class SigningKey {
   keyId: number;
 
   constructor(keyId: number) {
     this.keyId = keyId;
   }
 
-  publicKey(): PublicKey {
-    return new PublicKey(new Uint8Array());
+  verifyingKey(): VerifyingKey {
+    return new VerifyingKey(new Uint8Array());
   }
 
   sign(data: string | Uint8Array): Signature {
